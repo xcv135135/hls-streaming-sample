@@ -1,0 +1,18 @@
+FROM ubuntu:18.04
+
+WORKDIR /root
+
+RUN \
+	apt update -y && \
+	apt-get install sudo && \
+	sudo apt-get install -y vim  && \
+	sudo apt-get install -y wget && \
+	sudo apt-get install -y curl && \
+\
+	curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash - && \
+        sudo apt-get install -y nodejs && \
+\
+	sudo apt-get install -y ffmpeg
+
+
+# docker build -f Dockerfile-node-ffmpeg -t="node_ffmpeg:v1.0" ./ && docker run --rm -v /share/Public/matt/:/mnt/mattchou -it node_ffmpeg:v1.0 /bin/bash;
